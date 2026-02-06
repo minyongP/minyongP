@@ -73,14 +73,7 @@
 
 <div align="center">
 
-<img
-  height="165"
-  src="https://github-readme-stats.vercel.app/api?username=minyongP&show_icons=true&hide_title=true&hide_rank=false&include_all_commits=true&count_private=true&theme=transparent&cache_seconds=1800"
-/>
-<img
-  height="165"
-  src="https://github-readme-stats.vercel.app/api/top-langs/?username=minyongP&layout=compact&hide_title=true&theme=transparent&cache_seconds=1800"
-/>
+
 
 </div>
 

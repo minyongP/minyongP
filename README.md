@@ -73,11 +73,22 @@
 
 <div align="center">
 
-
+<img
+  height="165" 
+  src="https://minyong-github-readme-stats.vercel.app/api?username=minyongP&show_icons=true&theme=transparent&cache_seconds=1800" />
+/>
+<img
+  height="165"
+  src="https://minyong-github-readme-stats.vercel.app/api/top-langs/?username=minyongP&layout=compact&theme=transparent&cache_seconds=1800" />
+/>
 
 </div>
 
----
+## 백준
+<div align="center">
+  
+[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=minon98)](https://solved.ac/minon98/)
+</div>
 
 <div align="center">
 

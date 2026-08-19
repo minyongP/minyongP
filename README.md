@@ -71,11 +71,6 @@
 
 <div align="center">
 
-<img
-  height="165" 
-  src="https://minyong-github-readme-stats.vercel.app/api?username=minyongP&show_icons=true&theme=transparent&cache_seconds=1800"
-/>
-
 [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=minon98)](https://solved.ac/minon98/)
 
 </div>

@@ -1,82 +1,53 @@
-<div align="center">
+# 박민용 | Backend Developer
 
-<!-- HERO -->
-<img
-  src="https://capsule-render.vercel.app/api?type=waving&color=0:0ea5e9,100:22c55e&height=170&section=header&text=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94.%20%EB%B0%95%EB%AF%BC%EC%9A%A9%EC%9E%85%EB%8B%88%EB%8B%A4.&fontSize=48&fontColor=ffffff&animation=fadeIn"
-  alt="header"
-/>
+데이터와 지표로 병목을 찾고, 테스트와 문서로 개선을 증명하는 Java/Spring 백엔드 개발자입니다.  
+기능 구현에 그치지 않고 데이터 구조, 장애 복구, 운영 환경까지 함께 살핍니다.
 
-### Java · Spring Boot · REST API · 성능/지표 기반 개선 · 클라우드 배포
+## 제가 중요하게 생각하는 것
 
-<!-- QUICK BADGES -->
-<p>
-  <img src="https://img.shields.io/badge/Java-000000?style=for-the-badge&logo=openjdk&logoColor=white" />
-  <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" />
-  <img src="https://img.shields.io/badge/Spring%20Security-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white" />
-  <img src="https://img.shields.io/badge/JPA%2FHibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=white" />
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" />
-  <img src="https://img.shields.io/badge/PostgreSQL%20%2F%20PostGIS-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
-</p>
+- `EXPLAIN ANALYZE`와 부하 테스트 결과를 근거로 성능 문제를 좁혀갑니다.
+- API 계약과 데이터 무결성을 테스트로 고정해 변경에 강한 서비스를 만듭니다.
+- 설계 결정과 실패한 시도도 문서로 남겨 동료가 같은 맥락에서 이어갈 수 있게 합니다.
 
-<p>
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
-  <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white" />
-  <img src="https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" />
-  <img src="https://img.shields.io/badge/Terraform-844FBA?style=for-the-badge&logo=terraform&logoColor=white" />
-  <img src="https://img.shields.io/badge/K6-7D64FF?style=for-the-badge&logo=k6&logoColor=white" />
-  <img src="https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white" />
-</p>
+## 주요 프로젝트
 
-<p>
-  <img src="https://skillicons.dev/icons?i=java,spring,mysql,postgres,docker,aws,git,github,react,vue&perline=10" />
-</p>
+### [PinLog Backend](https://github.com/Team-PinLog/back)
 
-</div>
+장소 기록과 컬렉션, 자연어 검색을 제공하는 서비스의 Spring Boot 백엔드를 개발했습니다.
 
----
+- PostgreSQL generic plan 때문에 지도 조회가 16~22배 느려지는 조건을 재현하고 실행 계획을 분석했습니다.
+- custom plan 적용 전후를 실데이터로 비교해 지도 API 응답을 `67.5ms → 38.8ms`, 키워드 API를 `72.1ms → 25.6ms`로 개선했습니다.
+- 인증, 피드, 컬렉션, 커서 페이지네이션과 AI 비동기 연동을 구현하고 통합 테스트와 API 문서를 함께 관리했습니다.
 
-## ✅ 저는요!
+### [Home Search](https://github.com/minyongP/Home-Search)
 
-- **REST API 설계/구현**, **DB 최적화**, **배포/자동화** 경험을 바탕으로 “문제 → 해결 → 결과(수치)”로 성과를 설명합니다.  
-- **부하 테스트(K6) + 지표(p95/성공률/응답시간)** 기반으로 병목을 찾아 개선하는 접근을 선호합니다.  
-- 팀 프로젝트에서 **리딩/PM 역할**을 수행하며, 기획–설계–구현–운영을 끝까지 가져간 경험이 있습니다.
+아파트 실거래 데이터를 수집·정규화하고 지도에서 탐색하는 서비스입니다.
 
----
+- PostGIS 공간 조회와 인덱스를 조정해 지도 마커 API를 `48ms → 11ms`로 개선했습니다.
+- K6 부하 테스트에서 p95 응답 시간을 `2초 → 1초 미만`으로 줄이고 성공률 `99% 이상`을 확인했습니다.
+- 원본 데이터 보존, 중복 수집 방지, 매칭 실패 근거 추적을 중심으로 데이터 파이프라인을 설계했습니다.
 
-## 🧩 프로젝트
+### [UJAX](https://github.com/ujax-v2/ujax-server)
 
-<details>
-<summary><b>홈서치 (home-search)</b> — 아파트 실거래가 조회 및 시각화 서비스</summary>
+알고리즘 스터디를 위한 워크스페이스형 협업 플랫폼입니다.
 
-- **Role**: 팀장, API/성능 개선 주도  
-- **Tech**: Spring Boot, PostgreSQL(PostGIS), Docker, K6  
-- **Key Results**
-  - 지도 마커 조회 API: **48ms → 11ms (약 77% 개선)** *(EXPLAIN 기반 튜닝)*
-  - K6 부하 테스트 기준: **p95 2s → 1s 미만**, 성공률 **99%+**
-- **What I did**
-  - 공간 데이터(PostGIS) 기반 조회 설계 및 인덱싱/쿼리 최적화
-  - 부하 테스트 시나리오 설계, 병목 구간 개선 및 회귀 검증
+- 회원가입 이메일 인증과 메일 아웃박스 구조를 정리했습니다.
+- 웹훅 전송 계층을 분리하고 timeout 정책과 구조화 로그를 도입했습니다.
+- 제출 연동과 코드 실행 기능을 운영하기 위한 서버 구조를 개선했습니다.
 
-</details>
+### [ARENA](https://github.com/SSAFY1516Final/ARENA)
 
----
+서로 다른 관점의 AI가 사용자의 고민을 토론하고, 결과를 커뮤니티에 공유하는 서비스입니다.
 
-## 🎓 교육 & 자격
+- Spring AI 기반 후보 생성·검증·토론 파이프라인을 설계했습니다.
+- Kakao OAuth, JWT 인증과 게시글·투표·댓글 기능을 구현했습니다.
 
-- 삼성 청년 SW·AI 아카데미 — 웹 개발 과정 *(진행 중)*
-- 한국 소프트웨어 기술 진흥 협회 — Java 기반 DevOps 과정
-- 자격: **SQLD**, **정보처리기사**
+## 기술
 
----
+`Java` · `Spring Boot` · `Spring Security` · `JPA` · `MyBatis`  
+`PostgreSQL` · `PostGIS` · `MySQL` · `Redis`  
+`Docker` · `Kubernetes` · `GitHub Actions` · `Prometheus` · `Grafana`
 
-<div align="center">
+## Contact
 
-[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=minon98)](https://solved.ac/minon98/)
-
-</div>
-
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:22c55e,100:0ea5e9&height=120&section=footer" alt="footer"/>
-
-</div>
+[Email](mailto:dev.my.park@gmail.com) · [GitHub](https://github.com/minyongP) · [Solved.ac](https://solved.ac/minon98)

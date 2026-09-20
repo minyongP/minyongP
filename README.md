@@ -1,7 +1,7 @@
 <div align="center">
 
 <img
-  src="https://capsule-render.vercel.app/api?type=waving&color=0:0ea5e9,100:22c55e&height=170&section=header&text=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94.%20%EB%B0%95%EB%AF%BC%EC%9A%A9%EC%9E%85%EB%8B%88%EB%8B%A4.&fontSize=48&fontColor=ffffff&animation=fadeIn"
+  src="https://capsule-render.vercel.app/api?type=waving&color=0:0ea5e9,100:22c55e&height=130&section=header&text=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94.%20%EB%B0%95%EB%AF%BC%EC%9A%A9%EC%9E%85%EB%8B%88%EB%8B%A4.&fontSize=40&fontColor=ffffff&animation=fadeIn"
   alt="안녕하세요. 박민용입니다."
 />
 
@@ -14,17 +14,10 @@ Java·Spring Boot로 데이터 모델과 API를 설계하는 백엔드 개발자
 <p>
   <img src="https://img.shields.io/badge/Java-000000?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
   <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" alt="Spring Boot" />
-  <img src="https://img.shields.io/badge/JPA%2FHibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=white" alt="JPA / Hibernate" />
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
 </p>
 
-<p>
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL" />
-  <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" alt="Redis" />
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker" />
-  <img src="https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="GitHub Actions" />
-  <img src="https://img.shields.io/badge/k6-7D64FF?style=flat-square&logo=k6&logoColor=white" alt="k6" />
-</p>
+<p>JPA / Hibernate · MySQL · Redis · Docker · GitHub Actions · k6</p>
 
 [Email](mailto:dev.my.park@gmail.com) · [Solved.ac](https://solved.ac/minon98)
 
@@ -37,7 +30,7 @@ Java·Spring Boot로 데이터 모델과 API를 설계하는 백엔드 개발자
 ### [PinLog](https://github.com/Team-PinLog/PinLog) · 데이터 모델과 조회 성능
 
 경험과 맥락을 기록하고 AI 자연어 검색으로 다시 찾는 장소 아카이빙 서비스입니다.
-Core 데이터 모델과 Record·Context·Collection·Follow API, 데이터 무결성과 조회 성능 개선을 담당했습니다.
+핵심 데이터 모델과 Record·Context·Collection·Follow API, 데이터 무결성과 조회 성능 개선을 담당했습니다.
 
 - **문제:** 피드 후보 조회가 상위 100건을 반환하기 위해 약 66만 건을 정렬했습니다.
 - **판단과 변경:** 실행 계획에서 정렬식과 인덱스의 불일치를 찾아 수정했습니다. DB 제약 조건을 확인해 변경 전후 결과가 같음을 검증했습니다.
@@ -45,7 +38,7 @@ Core 데이터 모델과 Record·Context·Collection·Follow API, 데이터 무�
 
 <sub>Record 천만 건 규모의 벤치마크 결과입니다. API 수치는 워밍 3회 후 10회 측정한 중앙값이며, 쿼리 측정과 구분합니다.</sub>
 
-[내 기여와 측정 조건](docs/pinlog.md) · [피드 조회 병목 분석 및 개선 PR](https://github.com/Team-PinLog/back/pull/183) · [Core 도메인 설계 PR](https://github.com/Team-PinLog/back/pull/51)
+[내 기여와 측정 조건](docs/pinlog.md) · [피드 조회 병목 분석 및 개선 PR](https://github.com/Team-PinLog/back/pull/183) · [핵심 도메인 설계 PR](https://github.com/Team-PinLog/back/pull/51)
 
 `Java` · `Spring Boot` · `PostgreSQL` · `Redis` · `Kafka`
 
@@ -56,6 +49,7 @@ Core 데이터 모델과 Record·Context·Collection·Follow API, 데이터 무�
 
 - **문제:** 회원가입·초대 메일의 전송 실패가 비즈니스 처리에 영향을 주고, 실패한 요청을 다시 처리할 구조가 필요했습니다.
 - **판단과 변경:** 메일 요청을 DB Outbox에 저장하고 스케줄러가 전송·재시도하도록 분리했습니다. 회원가입은 이메일 인증 완료 시점에 계정을 생성하도록 바꿨습니다.
+- **결과:** SMTP 전송이 실패해도 저장된 메일 요청을 스케줄러가 재시도할 수 있게 되어, 가입·초대 요청 처리와 메일 전송 실패를 분리했습니다.
 - **검증:** Outbox 처리·메일 전송·스케줄러 테스트를 작성했습니다. 외부 알림은 실제 Mattermost 전송과 구조화 로그로 처리 흐름을 확인했습니다.
 
 [내 기여와 설계 범위](docs/ujax.md) · [메일 Outbox와 이메일 인증 PR](https://github.com/ujax-v2/ujax-server/pull/85) · [외부 알림 책임 분리 및 검증 PR](https://github.com/ujax-v2/ujax-server/pull/97)
@@ -73,10 +67,9 @@ Core 데이터 모델과 Record·Context·Collection·Follow API, 데이터 무�
 
 `Java` · `Spring Boot` · `PostgreSQL / PostGIS` · `React`
 
-### [Pathfinder](https://github.com/minyongP/pathfinder)
+## 기타 프로젝트
 
-국내 여행 기록을 공유하고 지역별 여행 정보를 찾아보는 커뮤니티입니다.
-백엔드 개발을 맡아 외부 Open API 연동, 이미지 업로드와 CI/CD를 담당했습니다.
+- [Pathfinder](https://github.com/minyongP/pathfinder) — 국내 여행 커뮤니티. 백엔드의 외부 Open API 연동, 이미지 업로드와 CI/CD를 담당했습니다.
 
 ---
 

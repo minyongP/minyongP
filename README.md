@@ -27,8 +27,6 @@ Java·Spring Boot 기반의 백엔드 개발자입니다.
 
 <p>JPA / Hibernate · MySQL · Redis · Docker · GitHub Actions · k6</p>
 
-[Email](mailto:dev.my.park@gmail.com) · [Solved.ac](https://solved.ac/minon98)
-
 </div>
 
 ---

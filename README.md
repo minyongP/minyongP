@@ -73,13 +73,6 @@ Java·Spring Boot 기반의 백엔드 개발자입니다.
 
 `Java` · `Spring Boot` · `PostgreSQL / PostGIS` · `React`
 
-## 기타 프로젝트
-
-- [Pathfinder](https://github.com/minyongP/pathfinder) — 국내 여행 커뮤니티. 백엔드의 외부 Open API 연동, 이미지 업로드와 CI/CD를 담당했습니다.
-
----
-
-<div align="center">
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:22c55e,100:0ea5e9&height=100&section=footer" alt="파랑·초록 웨이브 푸터" />
 

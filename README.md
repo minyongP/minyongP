@@ -31,7 +31,7 @@ Java·Spring Boot 기반의 백엔드 개발자입니다.
 
 ---
 
-## 대표 프로젝트와 기여
+## 프로젝트
 
 ### [PinLog](https://github.com/Team-PinLog/PinLog) · 데이터 모델과 조회 성능
 
@@ -61,8 +61,6 @@ Java·Spring Boot 기반의 백엔드 개발자입니다.
 [내 기여와 설계 범위](docs/ujax.md) · [메일 Outbox와 이메일 인증 PR](https://github.com/ujax-v2/ujax-server/pull/85) · [외부 알림 책임 분리 및 검증 PR](https://github.com/ujax-v2/ujax-server/pull/97)
 
 `Java` · `Spring Boot` · `MySQL` · `Redis`
-
-## 함께 만든 프로젝트
 
 ### [Home Search](https://github.com/kosta-team2/Home-Search)
 

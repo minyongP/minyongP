@@ -9,13 +9,9 @@
 
 </div>
 
-Java·Spring Boot 기반의 백엔드 개발자입니다.
-
-- **조회 성능** — 실행 계획을 분석해 쿼리와 인덱스를 개선합니다.
-- **데이터 무결성** — 도메인 규칙을 데이터 모델과 DB 제약 조건에 반영합니다.
-- **외부 연동 안정성** — 실패가 핵심 비즈니스 로직에 전파되지 않도록 분리하고 재시도 구조를 설계합니다.
-
-변경 전후를 테스트와 측정으로 검증하고, 선택한 이유와 한계를 기록합니다.
+- **조회 성능** — PinLog에서 실행 계획을 분석해 정렬식과 인덱스의 불일치를 해소하고 피드 조회 시간을 줄였습니다.
+- **데이터 무결성** — PinLog의 핵심 도메인을 설계하고 DB 제약 조건과 동시성 제어로 데이터 정합성을 관리했습니다.
+- **외부 연동 안정성** — UJAX에 DB Outbox와 재시도를 도입해 메일 전송을 가입·초대 트랜잭션에서 분리했습니다.
 
 <div align="center">
 
@@ -25,7 +21,7 @@ Java·Spring Boot 기반의 백엔드 개발자입니다.
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
 </p>
 
-<p>JPA / Hibernate · MySQL · Redis · Docker · GitHub Actions · k6</p>
+<p>JPA / Hibernate · MySQL · PostGIS · Redis · Amazon S3 · React<br>Docker · GitHub Actions · Flyway · JUnit 5 · Testcontainers · k6</p>
 
 </div>
 
@@ -33,44 +29,37 @@ Java·Spring Boot 기반의 백엔드 개발자입니다.
 
 ## 프로젝트
 
-### [PinLog](https://github.com/Team-PinLog/PinLog) · 데이터 모델과 조회 성능
+### [PinLog](https://github.com/Team-PinLog/PinLog) · 경험과 맥락을 기록하고 AI 검색으로 다시 찾는 장소 아카이빙 서비스
 
-경험과 맥락을 기록하고 AI 자연어 검색으로 다시 찾는 장소 아카이빙 서비스입니다.
-**핵심 데이터 모델 및 API 설계와 데이터 무결성·조회 성능 개선을 담당했습니다.**
+핵심 도메인·API 설계, 데이터 무결성 관리, 지도·피드 조회 성능 개선을 담당했습니다.
 
-- **문제:** 피드 후보 조회가 상위 100건을 반환하기 위해 약 66만 건을 정렬했습니다.
-- **판단과 변경:** 실행 계획에서 정렬식과 인덱스의 불일치를 찾아 수정했습니다. DB 제약 조건을 확인해 변경 전후 결과가 같음을 검증했습니다.
-- **결과:** 합성 벤치마크 환경에서 해당 쿼리는 **236.65 → 2.30ms**, 피드 API는 **중앙값 368 → 197ms**로 개선했습니다. 실행 계획을 확인하는 회귀 테스트도 추가했습니다.
+- **조회 성능 개선** — 실행 계획에 맞춰 정렬식과 인덱스를 정비해 피드 후보 쿼리를 **236.65 → 2.30ms**, 피드 API 중앙값을 **368 → 197ms**로 단축했습니다.
+- **핵심 도메인 설계** — Record·Context·Collection·Follow의 데이터 모델과 API를 설계하고 DB 제약 조건으로 도메인 규칙을 반영했습니다.
+- **데이터 정합성 관리** — 연관 데이터의 연쇄 삭제와 동시성 제어를 구현했습니다.
+- **성능 회귀 검증** — Record 천만 건 규모의 합성 벤치마크 환경을 구성하고, 실행 계획 기반 회귀 테스트를 추가했습니다.
 
-<sub>Record 천만 건 규모의 벤치마크 결과입니다. API 수치는 워밍 3회 후 10회 측정한 중앙값이며, 쿼리 측정과 구분합니다.</sub>
+<sub>성능 수치는 합성 벤치마크 결과입니다. API는 워밍 3회 후 10회 측정한 중앙값이며, 쿼리 실행 시간과 별도로 측정했습니다.</sub>
 
-[내 기여와 측정 조건](docs/pinlog.md) · [피드 조회 병목 분석 및 개선 PR](https://github.com/Team-PinLog/back/pull/183) · [핵심 도메인 설계 PR](https://github.com/Team-PinLog/back/pull/51)
+### [UJAX](https://github.com/ujax-v2/UJAX) · 문제 관리·코드 실행·백준 제출·풀이 공유를 지원하는 알고리즘 스터디 서비스
 
-`Java` · `Spring Boot` · `PostgreSQL` · `Redis` · `Kafka`
+워크스페이스 권한·가입 흐름, 커뮤니티, 이메일 인증·재시도, 외부 알림을 개발했습니다.
 
-### [UJAX](https://github.com/ujax-v2/UJAX) · 권한과 외부 연동 안정성
+- **메일 장애 대응** — DB Outbox와 스케줄러로 메일 전송을 비즈니스 트랜잭션에서 분리하고 실패 요청의 재시도를 구현했습니다.
+- **가입 상태 분리** — 가입 대기 정보와 실제 계정을 분리해 이메일 인증 완료 후 계정을 생성하고, 재요청·만료 정보 정리 흐름을 구현했습니다.
+- **워크스페이스 접근 제어** — 역할별 권한과 가입 신청·승인·취소 API를 구현했습니다.
+- **외부 알림 구조 개선** — 알림 예약·수정·취소와 실제 전송 책임을 분리하고, Mattermost 실전송과 구조화 로그로 처리 흐름을 검증했습니다.
+- **실패 처리 테스트** — Outbox 처리·SMTP 전송·스케줄러·가입 대기 정리 배치의 테스트를 작성했습니다.
 
-문제 관리부터 코드 실행, 백준 제출과 풀이 공유까지 이어지는 알고리즘 스터디 워크스페이스입니다.
-워크스페이스 권한·가입 흐름과 커뮤니티, 이메일 인증·재시도 및 외부 알림을 개발했습니다.
+### [Home Search](https://github.com/kosta-team2/Home-Search) · 공공데이터 기반 아파트 정보·실거래가 지도 탐색 서비스
 
-- **문제:** 회원가입·초대 메일의 전송 실패가 비즈니스 처리에 영향을 주고, 실패한 요청을 다시 처리할 구조가 필요했습니다.
-- **판단과 변경:** 메일 요청을 DB Outbox에 저장하고 스케줄러가 전송·재시도하도록 분리했습니다. 가입 대기 정보와 실제 계정을 분리해, 이메일 인증을 완료한 경우에만 계정을 생성하도록 바꿨습니다.
-- **결과:** 메일 서버 장애가 가입·초대 요청의 DB 트랜잭션에 직접 영향을 주지 않도록 전송 책임을 분리했고, 실패 요청을 재시도할 수 있는 구조를 만들었습니다.
-- **검증:** Outbox 처리·메일 전송·스케줄러 테스트를 작성했습니다. 외부 알림은 실제 Mattermost 전송과 구조화 로그로 처리 흐름을 확인했습니다.
+지역·단지·실거래 조회 API와 지도 탐색, 기간·면적 필터, 가격 차트 연동을 담당했습니다.
 
-[내 기여와 설계 범위](docs/ujax.md) · [메일 Outbox와 이메일 인증 PR](https://github.com/ujax-v2/ujax-server/pull/85) · [외부 알림 책임 분리 및 검증 PR](https://github.com/ujax-v2/ujax-server/pull/97)
+- **부동산 조회 API** — 단지 상세 정보와 실거래 목록을 제공하는 API를 구현했습니다.
+- **조건별 거래 탐색** — 기간·면적 필터를 화면에 연결해 조건에 맞는 실거래 내역을 탐색하도록 구현했습니다.
+- **지도·차트 연동** — 지도 탐색과 가격 차트를 연결해 위치와 거래 가격을 함께 확인할 수 있도록 구현했습니다.
+- **지역 조회 검증** — 상위·하위 지역 조회와 존재하지 않는 지역의 예외 처리 테스트를 작성했습니다.
 
-`Java` · `Spring Boot` · `MySQL` · `Redis`
-
-### [Home Search](https://github.com/kosta-team2/Home-Search)
-
-공공데이터로 아파트 정보와 실거래가를 지도·차트에서 탐색하는 서비스입니다.
-단지 상세·실거래 목록 API를 구현하고, 지도 탐색과 기간·면적 필터, 가격 차트를 화면에 연결했습니다.
-
-[지역 조회 API와 테스트](https://github.com/kosta-team2/home-server/pull/8) · [단지 상세 조회 API](https://github.com/kosta-team2/home-server/pull/13) · [실거래 목록 API](https://github.com/kosta-team2/home-server/pull/23)
-
-`Java` · `Spring Boot` · `PostgreSQL / PostGIS` · `React`
-
+<div align="center">
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:22c55e,100:0ea5e9&height=100&section=footer" alt="파랑·초록 웨이브 푸터" />
 

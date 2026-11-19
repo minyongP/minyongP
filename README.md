@@ -21,13 +21,23 @@
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
 </p>
 
-<p>JPA / Hibernate · MySQL · PostGIS · Redis · Amazon S3 · React<br>Docker · GitHub Actions · Flyway · JUnit 5 · Testcontainers · k6</p>
+<p>JPA / Hibernate · MySQL · PostGIS · Redis · Amazon S3 · React · TypeScript · three.js<br>Docker · GitHub Actions · Flyway · JUnit 5 · Testcontainers · Playwright · k6</p>
 
 </div>
 
 ---
 
 ## 프로젝트
+
+### [BEEZ](https://github.com/minyongP/BEEZ) · 팀원별 AI 에이전트가 같은 승인 설계를 기준으로 개발하게 돕는 3D 협업 서비스
+
+프론트엔드를 맡아 3D 사무실과 업무 화면 구현, 실서버 규칙 대조, 화면에 필요한 API 계약 제안을 담당했습니다.
+
+- **실서버 규칙 대조** — 백엔드 서비스 코드를 읽고 목 어댑터와 대조해 목과 실서버가 다른 곳 40건을 머지 전에 고치고, 서버 규칙을 테스트로 고정했습니다.
+- **API 계약 합의** — 화면에 필요한 계약을 공용 API 명세 diff로 제안해 새 REST API 16개와 정책 질문 10건을 백엔드·AI 리뷰로 합의했습니다.
+- **E2E 안정화** — 3D 화면 E2E 간헐 실패를 프레임 시간 측정으로 headless 렌더러의 CPU WebGL 문제로 좁혀, 전체 E2E를 **3.9분 → 24초**로 단축했습니다.
+- **3D 시뮬레이션 수정** — 사무실 캐릭터가 서로 길을 막고 멈추는 문제를 우회·재탐색으로 고쳐 120초 시뮬레이션의 최대 정지 시간을 **100초 → 1.2초**로 줄였습니다.
+- **접근성 대비 개선** — 화면마다 고치지 않고 디자인 토큰을 조정해 보조 글자 대비를 4.08 → 4.55:1, 링크 버튼을 1.59 → 5.86:1로 높여 WCAG AA 기준을 맞췄습니다.
 
 ### [PinLog](https://github.com/Team-PinLog/PinLog) · 경험과 맥락을 기록하고 AI 검색으로 다시 찾는 장소 아카이빙 서비스
 
